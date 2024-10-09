@@ -112,3 +112,67 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderTodos();
 });
+
+// Función para obtener las tareas guardadas en localStorage
+function obtenerTareas() {
+    const tareasGuardadas = localStorage.getItem('tareas');
+    return tareasGuardadas ? JSON.parse(tareasGuardadas) : [];
+}
+
+// Función para obtener las tareas completadas guardadas en localStorage
+function obtenerTareasCompletadas() {
+    const tareasCompletadasGuardadas = localStorage.getItem('tareasCompletadas');
+    return tareasCompletadasGuardadas ? JSON.parse(tareasCompletadasGuardadas) : [];
+}
+
+// Función para guardar las tareas pendientes en localStorage
+function guardarTareas(tareas) {
+    localStorage.setItem('tareas', JSON.stringify(tareas));
+}
+
+// Función para guardar las tareas completadas en localStorage
+function guardarTareasCompletadas(tareasCompletadas) {
+    localStorage.setItem('tareasCompletadas', JSON.stringify(tareasCompletadas));
+}
+
+// Función para cargar las tareas almacenadas al iniciar la página
+window.onload = function() {
+    // Obtener y renderizar tareas pendientes
+    const tareas = obtenerTareas();
+    const listaTareas = document.getElementById('todoList');
+    tareas.forEach((tarea) => {
+        agregarTareaHTML(tarea); // Asumiendo que ya tienes una función que agrega la tarea a la UI
+    });
+
+    // Obtener y renderizar tareas completadas
+    const tareasCompletadas = obtenerTareasCompletadas();
+    const listaCompletadas = document.getElementById('completedList');
+    tareasCompletadas.forEach((tarea) => {
+        agregarTareaCompletadaHTML(tarea); // Asumiendo que ya tienes una función para agregar a la lista de completadas
+    });
+}
+
+// Asegúrate de que estas funciones se ejecuten al añadir o completar tareas:
+
+// Después de añadir una nueva tarea:
+function agregarTarea(nombreTarea) {
+    const tareas = obtenerTareas();
+    tareas.push(nombreTarea);
+    guardarTareas(tareas);  // Guardar tareas actualizadas
+}
+
+// Después de completar una tarea:
+function completarTarea(index) {
+    const tareas = obtenerTareas();
+    const tareaCompletada = tareas.splice(index, 1)[0]; // Remover de la lista de pendientes
+    guardarTareas(tareas);  // Actualizar la lista de tareas pendientes
+
+    const tareasCompletadas = obtenerTareasCompletadas();
+    tareasCompletadas.push(tareaCompletada);  // Añadir a la lista de completadas
+    guardarTareasCompletadas(tareasCompletadas);  // Guardar las completadas
+}
+
+// Borrar todas las tareas completadas
+function borrarTareasCompletadas() {
+    localStorage.removeItem('tareasCompletadas');  // Borrar tareas completadas de localStorage
+}

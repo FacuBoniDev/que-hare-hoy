@@ -1,0 +1,272 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #637be7 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.main-title {
+    font-size: 3rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    margin-top: 0;
+}
+
+.subtitle a {
+    color: #ffd700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.subtitle a:hover {
+    color: #fff700;
+}
+
+.todo-container {
+    max-width: 600px;
+    width: 100%;
+}
+
+.todo-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.todo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #4a4a4a;
+    text-align: center;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.todo-input {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.todo-input input[type="text"] {
+    flex-grow: 1;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px 0 0 8px;
+    transition: all 0.3s ease;
+}
+
+.todo-input input[type="text"]:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.todo-input button {
+    padding: 12px 24px;
+    font-size: 16px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.todo-input button:hover {
+    background: linear-gradient(45deg, #764ba2, #667eea);
+}
+
+.todo-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.todo-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.todo-list li:hover {
+    background-color: #f0f0f0;
+}
+
+.todo-list label {
+    font-size: 16px;
+    color: #4a4a4a;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.delete-btn, .remove-btn {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+}
+
+.delete-btn:hover, .remove-btn:hover {
+    background-color: #ff8787;
+}
+
+.completion-time {
+    font-size: 12px;
+    color: #888;
+    margin-left: 10px;
+}
+
+/* Estilo para el checkbox */
+.container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-size: 20px;
+    user-select: none;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    border-radius: 5px;
+}
+
+.checkmark {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 1.3em;
+    width: 1.3em;
+    background-color: #ccc;
+    border-radius: 5px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    margin-right: 15px;
+}
+
+.container input:checked ~ .checkmark {
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+    transition: all 0.3s ease;
+    opacity: 1;
+    background-image: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+}
+
+.container input ~ .checkmark {
+    transition: all 0.3s ease;
+    opacity: 1;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.container input:checked ~ .checkmark:after {
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.container .checkmark:after {
+    left: 0.45em;
+    top: 0.25em;
+    width: 0.25em;
+    height: 0.5em;
+    border: solid white;
+    border-width: 0 0.15em 0.15em 0;
+    transform: rotate(45deg);
+}
+
+/* Estilo para el botón "Borrar todo" */
+.clear-all-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background: linear-gradient(45deg, #ff6b6b, #feca57);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.clear-all-btn:hover {
+    background: linear-gradient(45deg, #feca57, #ff6b6b);
+}
+
+/* Estilos para el footer */
+.footer {
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.footer p {
+    margin: 0;
+    color: #ffffff;
+}
+
+/* Estilos para el logo de GitHub */
+.github-link {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.github-logo {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.github-logo:hover {
+    transform: scale(1.1);
+}

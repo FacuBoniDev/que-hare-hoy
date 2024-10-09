@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Qué haré hoy?</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+    <div class="content-wrapper">
+        <header>
+            <h1 class="main-title">¿Qué haré hoy?</h1>
+            <h2 class="subtitle"><a href="https://facubonidev.github.io/Proyecto1.5/index.html" target="_blank">By Facu</a></h2>
+        </header>
+
+        <div class="todo-container">
+            <div class="todo-card">
+                <h2>Lista de Tareas</h2>
+                <div class="todo-input">
+                    <input type="text" id="newTodo" placeholder="Añadir nueva tarea">
+                    <button id="addTodo">Añadir</button>
+                </div>
+                <ul id="todoList" class="todo-list"></ul>
+            </div>
+
+            <div class="todo-card">
+                <h2>Acciones Completadas</h2>
+                <ul id="completedList" class="todo-list"></ul>
+                <button id="clearCompleted" class="clear-all-btn">Borrar todo</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2023 Derechos Reservados por Facundo Bonicalzi</p>
+    </footer>
+
+    <a href="https://github.com/FacuBoniDev" target="_blank" rel="noopener noreferrer" class="github-link">
+        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Logo" class="github-logo">
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>

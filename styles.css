@@ -134,7 +134,6 @@ h2 {
     flex-grow: 1;
     display: flex;
     align-items: center;
-    word-break: break-word;
 }
 
 .delete-btn, .remove-btn {

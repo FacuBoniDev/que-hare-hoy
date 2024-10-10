@@ -134,6 +134,7 @@ h2 {
     flex-grow: 1;
     display: flex;
     align-items: center;
+    font-weight: 500;
 }
 
 .delete-btn, .remove-btn {
@@ -340,4 +341,8 @@ h2 {
         bottom: 10px;
         right: 10px;
     }
+}
+
+#completedList li label{
+    text-decoration: line-through;
 }

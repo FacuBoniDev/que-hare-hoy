@@ -260,8 +260,8 @@ h2 {
 /* Estilos para el logo de GitHub */
 .github-link {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 40px;
+    right: 40px;
     z-index: 1000;
 }
 
